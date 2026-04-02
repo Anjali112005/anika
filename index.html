@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIKA | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; 
+            background: radial-gradient(circle at 50% 50%, #fff 0%, #f7f7f7 100%);
+            position: relative;
+        }
+
+        /* --- BACKGROUND DECOR --- */
+        .loop-element {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(139, 0, 0, 0.15); 
+            z-index: 1;
+            pointer-events: none;
+        }
+        .loop-1 { width: 120px; height: 120px; top: 15%; left: 10%; animation: drift 10s infinite alternate; }
+        .loop-2 { width: 180px; height: 180px; bottom: 10%; right: 8%; animation: drift 15s infinite alternate-reverse; border-style: dashed; }
+
+        @keyframes drift {
+            from { transform: translate(0, 0) rotate(0deg); }
+            to { transform: translate(40px, 50px) rotate(90deg); }
+        }
+
+        /* --- MAIN CARD --- */
+        .main-card {
+            position: relative;
+            padding: 50px 30px;
+            border-radius: 35px;
+            background: #ffffff;
+            text-align: center;
+            max-width: 650px;
+            width: 90%;
+            z-index: 10;
+            border: 1.5px solid rgba(139, 0, 0, 0.3);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.15), 0 20px 50px rgba(0,0,0,0.05);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 0, 0, 0.1), 0 20px 50px rgba(0,0,0,0.05); }
+            50% { box-shadow: 0 0 40px rgba(139, 0, 0, 0.25), 0 20px 50px rgba(0,0,0,0.05); }
+        }
+
+        /* --- LOGO SCALE --- */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            transform: scale(1.3); 
+            animation: float 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+        .logo-container img { width: 100%; max-width: 250px; height: auto; }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-weight: 900;
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -1.5px;
+            color: #000;
+        }
+
+        .highlight { color: #8B0000; display: inline-block; }
+
+        /* Hollow Double Ring Effect */
+        .ring {
+            position: relative;
+            display: inline-block;
+            width: 0.65em;
+            height: 0.65em;
+            vertical-align: middle;
+            margin: 0 1px;
+            color: transparent;
+        }
+        .ring::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 2px solid #8B0000;
+            border-radius: 50%;
+        }
+        .ring::after {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1.5px solid #8B0000;
+            border-radius: 50%;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 450px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
+        }
+
+        /* --- BUTTONS --- */
+        .social-row { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+        .btn {
+            text-decoration: none;
+            color: #000;
+            font-weight: 700;
+            padding: 14px 35px;
+            border: 2px solid #000;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-black { background: #000; color: #fff; }
+
+        /* Hover & Touch States */
+        .btn:hover { border-color: #8B0000; color: #8B0000; transform: translateY(-4px); }
+        .btn-black:hover { border-color: #8B0000; background: #8B0000; color: #fff; transform: translateY(-4px); }
+        
+        .social-row a:nth-child(2):hover,
+        .social-row a:nth-child(2):active { color: #ffffff; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float {
+            0%, 100% { transform: scale(1.3) translateY(0px); }
+            50% { transform: scale(1.3) translateY(-10px); }
+        }
+
+        @media (max-width: 600px) {
+            .logo-container { transform: scale(1.1); }
+            @keyframes float {
+                0%, 100% { transform: scale(1.1) translateY(0px); }
+                50% { transform: scale(1.1) translateY(-8px); }
+            }
+            .ring::after { top: 3px; left: 3px; right: 3px; bottom: 3px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loop-element loop-1"></div>
+    <div class="loop-element loop-2"></div>
+
+    <div class="main-card">
+        <div class="logo-container">
+            <img src="logo.png" alt="ANIKA">
+        </div>
+
+        <h1>We Are Launching <br> 
+            <span class="highlight">Very S<span class="ring">o</span><span class="ring">o</span>n.</span>
+        </h1>
+        
+        <p>From single pieces to bulk orders—whether you’re expressing your personal style or representing a group, we make customization easy, fast, and affordable.</p>
+
+        <div class="social-row">
+            <a href="https://instagram.com/anika.customs" target="_blank" class="btn">Instagram</a>
+            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-black">WhatsApp</a>
+        </div>
+    </div>
+
+</body>
+</html>
